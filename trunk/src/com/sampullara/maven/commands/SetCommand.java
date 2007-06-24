@@ -16,6 +16,7 @@ public class SetCommand extends Command {
 
     public void execute(String[] args) {
         if (args.length != 3) {
+            System.err.println("Wrong number of arguments: " + args.length);
             help();
             return;
         }

@@ -1,2 +1,2 @@
 #!/bin/sh
-java -jar "$MC_HOME/mc.jar" $*
+java -jar "$MC_HOME/mc.jar" "$@"
