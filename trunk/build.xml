@@ -1,0 +1,19 @@
+<project name="Maven Config" default="all">
+
+    <target name="all" depends="compile,jar"/>
+
+    <path id="compile.classpath">
+        <fileset dir="lib" includes="*.jar"/>
+    </path>
+
+    <target name="compile">
+        <mkdir dir="classes"/>
+        <javac classpathref="compile.classpath" srcdir="src" destdir="classes" debug="true" source="1.5"/>
+    </target>
+
+    <target name="jar">
+        <jar manifest="manifest" basedir="classes" destfile="mc.jar">
+            <zipgroupfileset dir="lib" includes="*.jar"/>
+        </jar>
+    </target>
+</project>
