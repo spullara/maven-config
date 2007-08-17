@@ -35,16 +35,26 @@ public class CreateCommand extends Command {
         Build build = new Build();
         model.setBuild(build);
 
-        Plugin plugin = new Plugin();
-        plugin.setGroupId("org.apache.maven.plugins");
-        plugin.setArtifactId("maven-compiler-plugin");
-        Xpp3Dom configuration = new Xpp3Dom("configuration");
+        Plugin compilerPlugin = new Plugin();
+        compilerPlugin.setGroupId("org.apache.maven.plugins");
+        compilerPlugin.setArtifactId("maven-compiler-compilerPlugin");
+        Xpp3Dom compilerConf = new Xpp3Dom("compilerConf");
         Xpp3Dom source = new Xpp3Dom("source");
         Xpp3Dom target = new Xpp3Dom("target");
-        configuration.addChild(source);
-        configuration.addChild(target);
-        plugin.setConfiguration(configuration);
-        build.addPlugin(plugin);
+        compilerConf.addChild(source);
+        compilerConf.addChild(target);
+        compilerPlugin.setConfiguration(compilerConf);
+        build.addPlugin(compilerPlugin);
+
+        Plugin assemblyPlugin = new Plugin();
+        assemblyPlugin.setArtifactId("maven-assembly-plugin");
+        Xpp3Dom assemblyConf = new Xpp3Dom("assemblyConf");
+        Xpp3Dom descriptorRefs = new Xpp3Dom("descriptorRefs");
+        Xpp3Dom descriptorRef = new Xpp3Dom("descriptorRef");
+        descriptorRefs.addChild(descriptorRef);
+        assemblyConf.addChild(descriptorRefs);
+        assemblyPlugin.setConfiguration(assemblyConf);
+        build.addPlugin(assemblyPlugin);
 
         writeModel(model);
     }
