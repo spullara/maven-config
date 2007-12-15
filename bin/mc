@@ -1,2 +1,2 @@
 #!/bin/sh
-java -cp "$MC_HOME/target/maven-config-0.1-jar-with-dependencies.jar" com.sampullara.maven.MC "$@"
+java -jar "$MC_HOME/target/maven-config-0.1-jar-with-dependencies.jar" "$@"
