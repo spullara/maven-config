@@ -1,0 +1,1 @@
+Maven is a great backend build tool with a terrible configuration file that no person should ever have to see.  Rather than edit them in a GUI, this project will provide a command line tool that will simulate the things that you can get from things like rake and gem in the Ruby community for simple Java projects.
